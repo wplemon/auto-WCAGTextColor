@@ -1,6 +1,7 @@
 /* globals React */
 /* eslint jsx-a11y/label-has-for: off */
 import reactCSS from 'reactcss';
+import WCAGTextColorIndicator from './WCAGTextColorIndicator';
 
 const WCAGTextLinkColorForm = ( props ) => {
 	// Styles.
