@@ -1,0 +1,28 @@
+{
+    "name": "wplemon/control-wcag-linkcolor",
+    "type": "library",
+    "description": "Color control for the Kirki Customizer framework using react-color.",
+    "keywords": ["wordpress","customizer","framework"],
+    "homepage": "https://aristath.github.io/kirki",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ari Stathopoulos",
+            "email": "aristath@gmail.com",
+            "homepage": "http://aristath.github.io",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "kirki-framework/control-base": "dev-master",
+        "kirki-framework/field": "dev-master",
+        "kirki-framework/url-getter": "*"
+    },
+    "autoload": {
+		"psr-4": {
+			"WPLemon\\Control\\": "src/Control",
+			"WPLemon\\Field\\": "src/Field"
+        }
+    }
+}
