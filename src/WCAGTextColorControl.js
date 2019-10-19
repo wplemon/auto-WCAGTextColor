@@ -69,6 +69,7 @@ const WCAGTextColorControl = wp.customize.Control.extend( {
 				control={ control }
 				backgroundColor={ control.getBackgroundColor() }
 				autoColor={ control.getAutoColor() }
+				appearance={ control.getAppearanceMode() }
 			/>,
 			control.container[ 0 ]
 		);
@@ -76,6 +77,10 @@ const WCAGTextColorControl = wp.customize.Control.extend( {
 		if ( false !== control.params.choices.allowCollapse ) {
 			control.container.addClass( 'allowCollapse colorPickerIsCollapsed' );
 		}
+	},
+
+	getAppearanceMode: function() {
+		return this.params.choices.appearance ? this.params.choices.appearance : 'default';
 	},
 
 	/**

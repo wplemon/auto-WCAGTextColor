@@ -8,23 +8,42 @@ const WCAGTextLinkColorForm = ( props ) => {
 	const styles = reactCSS( {
 		default: {
 			controlHead: {},
-			tabsWrapper: {}
+			inputWrapper: {},
+			wrapper: {
+				display: 'hidden' === props.appearance ? 'none' : 'block'
+			}
 		}
 	} );
 
-	return (
-		<div>
-			<div style={ styles.controlHead }>
-				<label id={ 'label-' + props.customizerSetting.id } className="customize-control-title">{ props.label }</label>
-				<span className="description customize-control-description" dangerouslySetInnerHTML={ { __html: props.description } }></span>
-				<div className="customize-control-notifications-container" ref={ props.setNotificationContainer }></div>
-			</div>
+	let inputWrapper = <div style={ styles.inputWrapper }>
+		<WCAGTextColorIndicator { ...props } />
+	</div>;
 
-			<div style={ styles.tabsWrapper }>
-				<WCAGTextColorIndicator { ...props } />
+	if ( 'details' === props.appearance ) {
+		return <div>
+			<details>
+				<summary>{ props.label }</summary>
+				<span className="description customize-control-description" dangerouslySetInnerHTML={ { __html: props.description } }></span>
+				{ inputWrapper }
+			</details>
+			<div className="customize-control-notifications-container" ref={ props.setNotificationContainer }></div>
+		</div>;
+	}
+
+	if ( 'default' === props.appearance ) {
+		return (
+			<div styles={ styles.wrapper } >
+				<div style={ styles.controlHead }>
+					<label id={ 'label-' + props.customizerSetting.id } className="customize-control-title">{ props.label }</label>
+					<span className="description customize-control-description" dangerouslySetInnerHTML={ { __html: props.description } }></span>
+					<div className="customize-control-notifications-container" ref={ props.setNotificationContainer }></div>
+				</div>
+				{ inputWrapper }
 			</div>
-		</div>
-	);
+		);
+	}
+
+	return '';
 };
 
 export default WCAGTextLinkColorForm;
